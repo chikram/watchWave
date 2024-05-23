@@ -1,55 +1,12 @@
-// watch categories
-const watchCategories = [
-  {
-    id: 1,
-    brand: "Rolex",
-    logo: "https://th.bing.com/th?id=OIP.iL4SSmHns8CscSncC5pepAHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 2,
-    brand: "Omega",
-    logo: "https://th.bing.com/th?id=OIP.MASzB2Wgct-zR2W9Y7p2MgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 3,
-    brand: "Tag Heuer",
-    logo: "https://th.bing.com/th?id=OIP.HTpWe-_vCmmuWzjmKVNqPAHaGa&w=268&h=232&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 4,
-    brand: "Seiko",
-    logo: "https://th.bing.com/th?id=OIP.7bqf6YN5UPA-hQtMJmCQWwHaCF&w=350&h=98&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 5,
-    brand: "Casio",
-    logo: "https://th.bing.com/th?id=OIP.ka5H6LEiQEqtdnxiy58QQwHaBe&w=350&h=70&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 6,
-    brand: "Breitling",
-    logo: "https://th.bing.com/th?id=OIP.N5qTprIb0yaiAR8CBwbTuAHaC4&w=350&h=136&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 7,
-    brand: "Patek Philippe",
-    logo: "https://th.bing.com/th?id=OIP.2gUMUoEkslaYtHg-yGwFbQHaFt&w=284&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-  {
-    id: 8,
-    brand: "Audemars Piguet",
-    logo: "https://th.bing.com/th?id=OIP.k-SZNV506PpYzGRDnGkFLwHaFP&w=297&h=210&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  },
-];
-
 //detail of watches
-const watches = [
+export default [
   {
     id: 1,
     brand: "Rolex",
     model: "Submariner",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Rolex-Submariner.jpg/175px-Rolex-Submariner.jpg",
+      "https://th.bing.com/th/id/R.e2f9afe793e2b2d6a2beedd74d06a893?rik=IN3RiGuZXNsdrQ&pid=ImgRaw&r=0",
+
     description:
       "The Rolex Submariner is a classic diving watch with a sleek, timeless design.",
     features: {
@@ -64,7 +21,7 @@ const watches = [
     brand: "Omega",
     model: "Seamaster",
     image:
-      "https://www.omegawatches.com/media/catalog/product/o/m/omega-seamaster-aqua-terra-150m-co-axial-chronometer-41-5-mm-23110422101002-b99c6d.png?w=230",
+      "https://th.bing.com/th/id/R.9d4e86716bba881181b3ceaa7c2708fb?rik=8aD1MvBdszAXHA&riu=http%3a%2f%2fpngimg.com%2fuploads%2fwatches%2fwatches_PNG101435.png&ehk=XuYpOXqXVs3a1oTaUpOfo%2bFWutP6pIXELO6IuURQxbk%3d&risl=&pid=ImgRaw&r=0",
     description:
       "Omega Seamaster combines elegance and functionality, making it perfect for any occasion.",
     features: {
@@ -79,7 +36,7 @@ const watches = [
     brand: "Tag Heuer",
     model: "Carrera",
     image:
-      "https://www.bing.com/th?id=OIP.lZ_09aSL-Xw4zMFrOSz_EgHaLW&w=150&h=231&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+      "https://firstclasse.com.my/wp-content/uploads/2019/06/08125424-Complications-Productshot-1600x12002_resized_1200x1600.png",
     description:
       "Tag Heuer Carrera is known for its precision and sporty aesthetic, ideal for racing enthusiasts.",
     features: {
@@ -93,8 +50,7 @@ const watches = [
     id: 4,
     brand: "Seiko",
     model: "Prospex",
-    image:
-      "https://th.bing.com/th?id=OIP.jxxreo4QgEfDy4hCBks1xwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+    image: "https://www.userguide.cartier.com/img/watches/big/W1556226.png",
     description:
       "Seiko Prospex is a robust and reliable dive watch, suitable for professionals and enthusiasts alike.",
     features: {
@@ -138,8 +94,7 @@ const watches = [
     id: 7,
     brand: "Patek Philippe",
     model: "Nautilus",
-    image:
-      "https://static.patek.com/images/articles/face_white/220/7118_1200A_011_1.jpg",
+    image: "https://pngimg.com/uploads/watches/watches_PNG9860.png",
     description:
       "Patek Philippe Nautilus is an iconic luxury watch with a distinctive porthole design.",
     features: {
@@ -165,5 +120,3 @@ const watches = [
     price: 25000,
   },
 ];
-
-export default watches;

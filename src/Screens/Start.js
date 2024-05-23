@@ -21,7 +21,7 @@ const Start = () => {
         />
       </View>
       <TouchableOpacity style={styles.touchAble}>
-        <Text style={{ fontSize: 20, fontWeight: "700" }}>Get Started</Text>
+        <Text style={{ fontSize: 18, fontWeight: "500" }}>Get Started</Text>
       </TouchableOpacity>
     </View>
   );
