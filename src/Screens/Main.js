@@ -6,7 +6,6 @@ import {
   FlatList,
   Image,
   TextInput,
-  ScrollView,
 } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import watchCategory from "../data/watchCategory";
@@ -60,7 +59,12 @@ const Main = () => {
         data={watches}
         renderItem={({ item }) => (
           <View style={styles.popularitem}>
-            <MaterialIcons name="favorite-outline" size={24} color="black" />
+            <MaterialIcons
+              name="favorite-outline"
+              size={24}
+              color="black"
+              style={{ marginTop: 5, marginLeft: 4 }}
+            />
             <Image source={{ uri: item.image }} style={styles.img} />
             <Text
               style={{
