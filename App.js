@@ -1,18 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Start from "./src/Screens/Start";
-import Main from "./src/Screens/Main";
-import Detail from "./src/Screens/Detail";
-import { FavouriteItems } from "./src/Screens/FavouriteItems";
-
+import Navigation from "./src/navigation/Navigation";
 export default function App() {
   return (
     <>
-      {/* <Start /> */}
-      {/*   <Main /> */}
-      {/*    <Detail /> */}
-      <FavouriteItems />
-
+      <Navigation />
       <StatusBar style="auto" />
     </>
   );

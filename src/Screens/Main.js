@@ -6,11 +6,15 @@ import {
   FlatList,
   Image,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import watchCategory from "../data/watchCategory";
 import watches from "../data/watches";
+import { useNavigation } from "@react-navigation/native";
+
 const Main = () => {
+  const navigation = useNavigation();
   return (
     <>
       <View style={styles.container}>
@@ -65,7 +69,13 @@ const Main = () => {
               color="black"
               style={{ marginTop: 5, marginLeft: 4 }}
             />
-            <Image source={{ uri: item.image }} style={styles.img} />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Watch Detail");
+              }}
+            >
+              <Image source={{ uri: item.image }} style={styles.img} />
+            </TouchableOpacity>
             <Text
               style={{
                 fontSize: 14,

@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 const Start = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.txtView}>
@@ -20,7 +22,12 @@ const Start = () => {
           style={styles.image}
         />
       </View>
-      <TouchableOpacity style={styles.touchAble}>
+      <TouchableOpacity
+        style={styles.touchAble}
+        onPress={() => {
+          navigation.navigate("home");
+        }}
+      >
         <Text style={{ fontSize: 18, fontWeight: "500" }}>Get Started</Text>
       </TouchableOpacity>
     </View>

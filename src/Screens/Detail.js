@@ -19,7 +19,7 @@ const Detail = () => {
   }
 
   return (
-    <>
+    <View style={{ backgroundColor: "white", flex: 1 }}>
       <View style={styles.imageContainer}>
         <Image source={{ uri: watch.image }} style={styles.image} />
       </View>
@@ -63,13 +63,12 @@ const Detail = () => {
           <Text style={styles.btnTxt}>Buy now</Text>
         </TouchableOpacity>
       </View>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   imageContainer: {
-    marginTop: 50,
     alignItems: "center",
     backgroundColor: "black",
   },
@@ -119,8 +118,8 @@ const styles = StyleSheet.create({
   btnContainer: {
     position: "relative",
     flexDirection: "row",
-    marginTop: "40%",
     justifyContent: "center",
+    top: "30%",
   },
   btn: {
     backgroundColor: "black",
