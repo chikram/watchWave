@@ -3,13 +3,16 @@ import { StyleSheet, Text, View } from "react-native";
 import Start from "./src/Screens/Start";
 import Main from "./src/Screens/Main";
 import Detail from "./src/Screens/Detail";
+import { FavouriteItems } from "./src/Screens/FavouriteItems";
 
 export default function App() {
   return (
     <>
       {/* <Start /> */}
       {/*   <Main /> */}
-      <Detail />
+      {/*    <Detail /> */}
+      <FavouriteItems />
+
       <StatusBar style="auto" />
     </>
   );
