@@ -10,11 +10,14 @@ import {
 } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import watchCategory from "../data/watchCategory";
-import watches from "../data/watches";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector, useDispatch } from "react-redux";
+import { WatchSlice } from "../store/WatchSlice";
 
 const Main = () => {
+  const watches = useSelector((state) => state.watches.watches);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   return (
     <>
       <View style={styles.container}>
@@ -71,6 +74,9 @@ const Main = () => {
             />
             <TouchableOpacity
               onPress={() => {
+                //update selected products
+                dispatch(WatchSlice.actions.selectedItem(item.id));
+
                 navigation.navigate("Watch Detail");
               }}
             >

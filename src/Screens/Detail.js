@@ -1,22 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import watches from "../data/watches";
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 const Detail = () => {
-  const [watch, setWatch] = useState(null);
+  const watch = useSelector((state) => state.watches.selectedItem);
 
-  useEffect(() => {
-    // Set the watch data to display (for example, the first one)
-    setWatch(watches[0]);
-  }, []);
-
-  if (!watch) {
-    return (
-      <View style={{ alignItems: "center", marginTop: "50%" }}>
-        <Text style={{ color: "blue" }}>Loading...</Text>
-      </View>
-    );
-  }
+  watches[watch];
 
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>

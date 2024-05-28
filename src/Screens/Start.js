@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   txtView: {
     margin: 10,
+    marginTop: 0,
   },
   txt1: {
     color: "white",
