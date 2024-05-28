@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -15,9 +15,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { WatchSlice } from "../store/WatchSlice";
 
 const Main = () => {
-  const watches = useSelector((state) => state.watches.watches);
+  const watches = useSelector((state) => state.watches.watches || []);
+  const [search, setSearch] = useState("");
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  // Filter watches based on search input
+  const filteredWatches = watches.filter((watch) =>
+    watch.model.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <View style={styles.container}>
@@ -31,39 +38,44 @@ const Main = () => {
           <TextInput
             style={{ marginLeft: 5 }}
             placeholder="Search your watch"
-          ></TextInput>
+            value={search}
+            onChangeText={setSearch}
+          />
         </View>
 
-        <FlatList
-          data={watchCategory}
-          renderItem={({ item }) => (
-            <View style={styles.itemcontainer}>
-              <Image source={{ uri: item.logo }} style={styles.image} />
-              <Text
-                style={{
-                  alignSelf: "center",
-                  fontSize: 12,
-                  fontWeight: "bold",
-                  color: "gray",
-                  marginTop: 5,
-                }}
-              >
-                {item.brand}
-              </Text>
-            </View>
-          )}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
+        {search.length === 0 && (
+          <FlatList
+            data={watchCategory}
+            renderItem={({ item }) => (
+              <View style={styles.itemcontainer}>
+                <Image source={{ uri: item.logo }} style={styles.image} />
+                <Text
+                  style={{
+                    alignSelf: "center",
+                    fontSize: 12,
+                    fontWeight: "bold",
+                    color: "gray",
+                    marginTop: 5,
+                  }}
+                >
+                  {item.brand}
+                </Text>
+              </View>
+            )}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        )}
+
         <View style={styles.allwatch}>
           <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-            Popular Watch
+            {search.length === 0 ? "Popular Watches" : "Search Results"}
           </Text>
         </View>
       </View>
 
       <FlatList
-        data={watches}
+        data={filteredWatches}
         renderItem={({ item }) => (
           <View style={styles.popularitem}>
             <MaterialIcons
@@ -76,7 +88,6 @@ const Main = () => {
               onPress={() => {
                 //update selected products
                 dispatch(WatchSlice.actions.selectedItem(item.id));
-
                 navigation.navigate("Watch Detail");
               }}
             >
@@ -106,6 +117,7 @@ const Main = () => {
         )}
         numColumns={2}
         showsVerticalScrollIndicator={false}
+        keyExtractor={(item) => item.id.toString()}
       />
     </>
   );
@@ -133,7 +145,6 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     resizeMode: "contain",
   },
-
   allwatch: {
     margin: 20,
   },
