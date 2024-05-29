@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     position: "relative",
     flexDirection: "row",
     justifyContent: "center",
-    top: "30%",
+    top: "20%",
   },
   btn: {
     backgroundColor: "black",
