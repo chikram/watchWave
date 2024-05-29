@@ -24,9 +24,7 @@ const Start = () => {
       </View>
       <TouchableOpacity
         style={styles.touchAble}
-        onPress={() => {
-          navigation.navigate("home");
-        }}
+        onPress={() => navigation.replace("MainTabs")}
       >
         <Text style={{ fontSize: 18, fontWeight: "500" }}>Get Started</Text>
       </TouchableOpacity>
