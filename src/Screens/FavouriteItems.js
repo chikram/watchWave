@@ -7,14 +7,22 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import watches from "../data/watches";
+import { useSelector, useDispatch } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
+import { removeFavourite } from "../store/FavouriteItemSlice";
 
 export const FavouriteItems = () => {
+  const favoriteItems = useSelector((state) => state.favouriteItems.items); // Ensure correct state access
+  const dispatch = useDispatch();
+
+  const handleRemoveFavourite = (item) => {
+    dispatch(removeFavourite(item));
+  };
+
   return (
     <FlatList
-      data={watches}
-      keyExtractor={(item) => item.id} // Assuming each watch item has a unique id
+      data={favoriteItems}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
         <View style={styles.container}>
           <Image style={styles.image} source={{ uri: item.image }} />
@@ -25,12 +33,14 @@ export const FavouriteItems = () => {
               <TouchableOpacity style={styles.btn}>
                 <Text style={styles.btnTxt}>Buy now</Text>
               </TouchableOpacity>
-              <Ionicons
-                name="heart-sharp"
-                size={24}
-                color="black"
-                style={{ marginLeft: 5, marginTop: 10 }}
-              />
+              <TouchableOpacity onPress={() => handleRemoveFavourite(item)}>
+                <Ionicons
+                  name="heart-sharp"
+                  size={24}
+                  color="red"
+                  style={{ marginLeft: 5, marginTop: 10 }}
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </View>

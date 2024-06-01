@@ -7,6 +7,7 @@ import { FavouriteItems } from "../Screens/FavouriteItems";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Cart from "../Screens/Cart";
+import FavouriteStack from "./Navigation/FavouriteStack";
 
 const Tab = createBottomTabNavigator();
 const MyTab = () => {
@@ -39,7 +40,7 @@ const MyTab = () => {
       />
       <Tab.Screen
         name="Favourites"
-        component={FavouriteItems}
+        component={FavouriteStack}
         options={{
           tabBarLabel: "Favourite",
           tabBarIcon: ({ color }) => (
@@ -51,7 +52,7 @@ const MyTab = () => {
         name="Cart"
         component={Cart}
         options={{
-          tabBarLabel: "Favourites",
+          tabBarLabel: "Cart",
           tabBarIcon: ({ color }) => (
             <Ionicons name="bag-outline" size={24} color={color} />
           ),

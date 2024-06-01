@@ -13,9 +13,11 @@ import watchCategory from "../data/watchCategory";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch } from "react-redux";
 import { WatchSlice } from "../store/WatchSlice";
+import { addFavourite, removeFavourite } from "../store/FavouriteItemSlice";
 
 const Main = () => {
   const watches = useSelector((state) => state.watches.watches || []);
+  const favoriteItems = useSelector((state) => state.favouriteItems.items); // Ensure correct state access
   const [search, setSearch] = useState("");
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -24,6 +26,14 @@ const Main = () => {
   const filteredWatches = watches.filter((watch) =>
     watch.model.toLowerCase().includes(search.toLowerCase())
   );
+
+  const toggleFavorite = (watch) => {
+    if (favoriteItems.find((item) => item.id === watch.id)) {
+      dispatch(removeFavourite(watch));
+    } else {
+      dispatch(addFavourite(watch));
+    }
+  };
 
   return (
     <>
@@ -78,12 +88,22 @@ const Main = () => {
         data={filteredWatches}
         renderItem={({ item }) => (
           <View style={styles.popularitem}>
-            <MaterialIcons
-              name="favorite-outline"
-              size={24}
-              color="black"
-              style={{ marginTop: 5, marginLeft: 4 }}
-            />
+            <TouchableOpacity onPress={() => toggleFavorite(item)}>
+              <MaterialIcons
+                name={
+                  favoriteItems.find((fav) => fav.id === item.id)
+                    ? "favorite"
+                    : "favorite-outline"
+                }
+                size={24}
+                color={
+                  favoriteItems.find((fav) => fav.id === item.id)
+                    ? "red"
+                    : "black"
+                }
+                style={{ marginTop: 5, marginLeft: 4 }}
+              />
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 //update selected products

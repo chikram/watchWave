@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { WatchSlice } from "./WatchSlice";
+import watchReducer from "./WatchSlice";
+import favouriteReducer from "./FavouriteItemSlice";
 
 export const store = configureStore({
   reducer: {
-    watches: WatchSlice.reducer,
+    watches: watchReducer,
+    favouriteItems: favouriteReducer,
   },
 });
