@@ -11,9 +11,8 @@ export const WatchSlice = createSlice({
   initialState,
   reducers: {
     selectedItem: (state, action) => {
-      state.selectedWatch = state.watches.find(
-        (watch) => watch.id === action.payload
-      );
+      const watchId = action.payload;
+      state.selectedItem = state.watches.find((w) => w.id === watchId);
     },
   },
 });
