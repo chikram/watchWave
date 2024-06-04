@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   popularitem: {
     width: "45%",
-    backgroundColor: "#ECECEC",
+    backgroundColor: "white",
     margin: 10,
     padding: 5,
     borderRadius: 10,
